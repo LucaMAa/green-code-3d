@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14295e">
+  <meta name="description" content="Due sviluppatori, lo stesso task, due impatti diversi: un percorso visuale sulle decisioni ambientali nello sviluppo di software con AI.">
+  <title>green·code — Due sviluppatori, lo stesso task</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="book.css">
+  <script defer src="book.js"></script>
+</head>
+<body>
+  <header class="reader-bar">
+    <a class="brand" href="#libro" aria-label="green code, torna al libro"><span class="brand-mark">g<span>·</span>c</span><span class="brand-name">green·code</span></a>
+    <div class="header-actions">
+      <button class="presentation-toggle" id="presentation-toggle" type="button" aria-pressed="false">Modalità LIM <span aria-hidden="true">⛶</span></button>
+      <a class="deep-link" href="guida-discorsiva-green-code.pdf">Testo del talk <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="libro">
+    <section class="reading-intro" aria-labelledby="book-title">
+      <p class="eyebrow">Un percorso in otto tappe · 30 minuti</p>
+      <h1 id="book-title">Due sviluppatori.<br><em>Lo stesso task.</em></h1>
+      <p class="intro-copy">Anna e Marco devono classificare i messaggi dei clienti. Entrambi consegnano. Le decisioni attorno all'AI cambiano il lavoro che il software fa.</p>
+      <div class="reader-promise"><span class="promise-icon" aria-hidden="true">✳</span><p><b>Il filo del talk:</b> quando serve l'AI, quale modello basta, quanto testo inviare, quante volte chiamare e come tenere sotto controllo il costo.</p></div>
+      <button class="start-reading" type="button">Apri il percorso <span aria-hidden="true">↓</span></button>
+    </section>
+
+    <section class="reader" aria-label="Ebook interattivo per il talk">
+      <div class="reader-status">
+        <p class="current-chapter" id="current-chapter">Copertina</p>
+        <p class="page-counter" aria-live="polite"><span id="current-page">01</span><span class="counter-divider">/</span><span id="total-pages">09</span></p>
+      </div>
+      <div class="reading-track" role="progressbar" aria-label="Avanzamento nel libro" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" id="reading-progress"><span id="reading-progress-fill"></span></div>
+
+      <nav class="chapter-index" aria-label="Indice: scegli una tappa">
+        <button type="button" data-go-to="0" aria-label="Vai alla copertina" aria-current="page">00</button>
+        <button type="button" data-go-to="1" aria-label="Vai al task di Anna e Marco">01</button>
+        <button type="button" data-go-to="2" aria-label="Vai al costo di una richiesta">02</button>
+        <button type="button" data-go-to="3" aria-label="Vai alla decisione: serve l'AI">03</button>
+        <button type="button" data-go-to="4" aria-label="Vai alla decisione: quale modello">04</button>
+        <button type="button" data-go-to="5" aria-label="Vai alla decisione: quanto testo">05</button>
+        <button type="button" data-go-to="6" aria-label="Vai alla decisione: quante volte">06</button>
+        <button type="button" data-go-to="7" aria-label="Vai alla decisione: quanto costa">07</button>
+        <button type="button" data-go-to="8" aria-label="Vai alla conclusione">08</button>
+      </nav>
+
+      <div class="book-scene" id="book-scene">
+        <div class="book-shadow" aria-hidden="true"></div>
+        <div class="book" id="book">
+          <section class="spread spread-cover is-current" data-page="0" data-title="Copertina" aria-label="Copertina">
+            <div class="book-page left-page cover-back">
+              <span class="running-title">GREEN SOFTWARE</span>
+              <p class="cover-back-note">Non conta quanta AI usi.<br><em>Conta come decidi.</em></p>
+              <span class="page-number">i</span>
+            </div>
+            <article class="book-page right-page cover-front">
+              <span class="cover-series">UN TALK IN OTTO TAPPE</span>
+              <span class="cover-asterisk" aria-hidden="true">✳</span>
+              <h2>Due sviluppatori.<br><em>Lo stesso task.</em></h2>
+              <p class="cover-subtitle">Due impatti diversi.<br>Cinque decisioni.</p>
+              <span class="cover-byline">ANNA · MARCO · IL BACKEND</span>
+              <span class="page-number">01</span>
+            </article>
+          </section>
+
+          <section class="spread" data-page="1" data-title="Lo stesso task">
+            <aside class="book-page left-page">
+              <span class="running-title">01 · IL TASK</span>
+              <span class="margin-note">Stesso ticket. Stesso risultato.</span>
+              <p class="big-idea">Classificare<br>i messaggi<br><em>dei clienti.</em></p>
+              <div class="example-split">
+                <article><b>Marco</b><p>Collega un modello AI.</p></article>
+                <article><b>Anna</b><p>Prima chiarisce il problema.</p></article>
+              </div>
+              <p class="page-prompt">Entrambi consegnano.<br><b>Dove sta la differenza?</b></p>
+              <span class="page-number">02</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">APERTURA · 0-4 MINUTI</span>
+              <h2>Se il risultato è lo stesso,<br><em>dove cambia l'impatto?</em></h2>
+              <p>Marco non è uno sprovveduto. Anna non è un guru del software. Sono due persone competenti che prendono decisioni diverse.</p>
+              <p>La differenza non è usare l'AI o rifiutarla. È capire quando serve, quanta ne serve e quanto costa.</p>
+              <div class="audience-question"><b>Domanda</b><span>Che cosa decidereste prima di scegliere un modello?</span></div>
+              <p class="closing-thought">Non conta quanta AI usi. Conta come decidi.</p>
+            </article>
+          </section>
+
+          <section class="spread" data-page="2" data-title="Il costo di una richiesta">
+            <aside class="book-page left-page">
+              <span class="running-title">02 · IL LAVORO INVISIBILE</span>
+              <span class="margin-note">Una richiesta richiede calcolo</span>
+              <ol class="journey">
+                <li><b>Testo</b><span>Arrivano i token.</span></li>
+                <li><b>Calcolo</b><span>Il modello genera la risposta.</span></li>
+                <li><b>Risorse</b><span>Energia, raffreddamento, hardware.</span></li>
+              </ol>
+              <p class="side-quote">Una richiesta può essere piccola.<br>Conta quante volte la ripetiamo.</p>
+              <span class="page-number">04</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">CONTESTO · 4-8 MINUTI</span>
+              <h2>Ogni risposta è lavoro<br><em>per un computer.</em></h2>
+              <p>I token sono i piccoli pezzi in cui il modello legge e genera il testo. Generarli richiede calcolo ed energia.</p>
+              <p>Il raffreddamento può usare acqua. Le emissioni dipendono anche da come e dove viene prodotta l'elettricità.</p>
+              <div class="remember-box"><b>Non serve un numero magico</b>Le stime variano. Il design decide quante richieste, quanto testo e quali modelli usiamo.</div>
+              <p class="closing-thought">Il costo ambientale comincia dalle scelte di progetto.</p>
+            </article>
+          </section>
+
+          <section class="spread" data-page="3" data-title="Decisione 1: serve l'AI?">
+            <aside class="book-page left-page">
+              <span class="running-title">DECISIONE 01</span>
+              <span class="margin-note">Parti dal problema</span>
+              <div class="choice-ladder">
+                <div><b>1</b><span>Regola chiara</span></div>
+                <div><b>2</b><span>Classificatore semplice</span></div>
+                <div><b>3</b><span>Modello generativo</span></div>
+              </div>
+              <p class="side-quote">Definisci il problema.<br>Poi scegli lo strumento.</p>
+              <span class="page-number">06</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">8-11:24 · SERVE DAVVERO L'AI?</span>
+              <h2>Non tutti i messaggi<br><em>richiedono un modello.</em></h2>
+              <p><b>Marco:</b> usa il modello per tutti i casi, compresi quelli già chiari.</p>
+              <p><b>Anna:</b> regole per i casi semplici, AI per quelli ambigui, persona per quelli incerti.</p>
+              <p>In Symfony: validare l'input e scegliere il percorso prima di chiamare il servizio.</p>
+              <div class="remember-box"><b>Da ricordare</b>Prima definisci il problema. Poi scegli lo strumento.</div>
+            </article>
+          </section>
+
+          <section class="spread" data-page="4" data-title="Decisione 2: quale modello?">
+            <aside class="book-page left-page">
+              <span class="running-title">DECISIONE 02</span>
+              <span class="margin-note">La stessa prova per tutti</span>
+              <div class="test-cards">
+                <div><b>QUALITÀ</b><span>Classifica correttamente?</span></div>
+                <div><b>TEMPO</b><span>Risponde abbastanza in fretta?</span></div>
+                <div><b>COSTO</b><span>Quanto lavoro richiede?</span></div>
+              </div>
+              <p class="side-quote">Il più grande non è sempre il più adatto.</p>
+              <span class="page-number">08</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">11:24-14:48 · QUALE MODELLO?</span>
+              <h2>Scegli quello che<br><em>supera i tuoi test.</em></h2>
+              <p><b>Marco:</b> sceglie il più grande «per stare tranquillo».</p>
+              <p><b>Anna:</b> confronta più modelli sugli stessi messaggi e sceglie il più piccolo che raggiunge la qualità richiesta.</p>
+              <p>Se sbaglia e genera correzioni, il risparmio può sparire. Se non è abbastanza affidabile, passa il caso a una persona.</p>
+              <div class="remember-box"><b>Da ricordare</b>Scegli il modello più piccolo che supera i tuoi test.</div>
+            </article>
+          </section>
+
+          <section class="spread" data-page="5" data-title="Decisione 3: quanto testo?">
+            <aside class="book-page left-page">
+              <span class="running-title">DECISIONE 03</span>
+              <span class="margin-note">Contesto mirato</span>
+              <div class="example-split">
+                <article><b>Marco</b><p>Storico intero. Prompt lungo. Risposta libera.</p></article>
+                <article><b>Anna</b><p>Messaggio utile. Categoria ammessa. Risposta breve.</p></article>
+              </div>
+              <p class="side-quote">Meno testo superfluo.<br>Stessa qualità.</p>
+              <span class="page-number">10</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">14:48-18:12 · QUANTO TESTO?</span>
+              <h2>Manda il contesto che serve,<br><em>non tutto quello che hai.</em></h2>
+              <p>Invia il messaggio e le istruzioni necessarie, non ogni conversazione o documento disponibile.</p>
+              <p>Chiedi solo la categoria e i campi che il backend deve leggere. Valida la risposta prima di usarla.</p>
+              <p>Non tagliare informazioni utili: confronta la qualità con gli stessi esempi.</p>
+              <div class="remember-box"><b>Da ricordare</b>Meno dati inviati riducono anche esposizione non necessaria.</div>
+            </article>
+          </section>
+
+          <section class="spread" data-page="6" data-title="Decisione 4: quante volte?">
+            <aside class="book-page left-page">
+              <span class="running-title">DECISIONE 04</span>
+              <span class="margin-note">Non rifare il lavoro senza motivo</span>
+              <div class="choice-ladder">
+                <div><b>Cache</b><span>Riusa ciò che è ancora valido.</span></div>
+                <div><b>Messenger</b><span>Gestisci il lavoro in coda.</span></div>
+                <div><b>RateLimiter</b><span>Metti un limite alle richieste.</span></div>
+              </div>
+              <p class="side-quote">Retry sì, ma con un limite.</p>
+              <span class="page-number">12</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">18:12-21:36 · QUANTE VOLTE?</span>
+              <h2>Una richiesta può<br><em>diventare molte.</em></h2>
+              <p><b>Marco:</b> richiama il modello a ogni retry, anche quando il client ha già ripetuto la richiesta.</p>
+              <p><b>Anna:</b> evita i doppioni, riusa risultati validi e limita i tentativi automatici.</p>
+              <p>Symfony: Cache, Messenger e RateLimiter sono esempi di strumenti, non passaggi obbligatori.</p>
+              <div class="remember-box"><b>Da ricordare</b>Evita le chiamate duplicate e metti un limite a quelle necessarie.</div>
+            </article>
+          </section>
+
+          <section class="spread" data-page="7" data-title="Decisione 5: quanto costa?">
+            <aside class="book-page left-page">
+              <span class="running-title">DECISIONE 05</span>
+              <span class="margin-note">Osserva la feature</span>
+              <div class="number-questions">
+                <p><b>CHIAMATE</b><span>Quante classificazioni?</span></p>
+                <p><b>TOKEN</b><span>Quanto testo entra ed esce?</span></p>
+                <p><b>RISULTATO</b><span>Quante classificazioni corrette?</span></p>
+              </div>
+              <p class="side-quote">Il costo per risultato, non solo per chiamata.</p>
+              <span class="page-number">14</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">21:36-25 · LO SO QUANTO COSTA?</span>
+              <h2>Misura per feature.<br><em>Fissa un budget.</em></h2>
+              <p><b>Marco:</b> scopre il volume dalla fattura.</p>
+              <p><b>Anna:</b> osserva chiamate, token, retry e risultati corretti; imposta limiti e avvisi.</p>
+              <p>Token e fattura non misurano da soli le emissioni. Per i dati dei server chiedi al fornitore; dichiara ciò che non puoi vedere.</p>
+              <div class="remember-box"><b>Da ricordare</b>Guarda il costo per risultato corretto.</div>
+            </article>
+          </section>
+
+          <section class="spread" data-page="8" data-title="Il giudizio e la risposta">
+            <aside class="book-page left-page last-page">
+              <span class="running-title">DA PORTARE NEL TEAM</span>
+              <span class="margin-note">La prossima feature</span>
+              <ol class="final-questions">
+                <li><b>Serve davvero?</b></li>
+                <li><b>Quanta ne basta?</b></li>
+                <li><b>Quanto costa?</b></li>
+              </ol>
+              <p class="page-prompt">Nel ticket:<br><b>perché abbiamo scelto questo modello?</b></p>
+              <span class="page-number">16</span>
+            </aside>
+            <article class="book-page right-page">
+              <span class="chapter-label">25-30 · GIUDIZIO E CHIUSURA</span>
+              <h2>L'AI può suggerire<br><em>più AI.</em></h2>
+              <p>Il modello propone. Noi decidiamo se serve. Il giudizio si costruisce facendo domande sul compito, sui test, sulle chiamate e sui costi.</p>
+              <p>I costi economici e ambientali spesso si muovono insieme, ma non sono la stessa misura.</p>
+              <div class="audience-question"><b>La frase finale</b><span>Un buon sviluppatore non è quello che usa più AI, ma quello che sa quanta ne serve.</span></div>
+              <a class="source-link" href="guida-discorsiva-green-code.pdf">Apri il testo completo del talk <span aria-hidden="true">↗</span></a>
+            </article>
+          </section>
+
+          <div class="page-turn" id="page-turn" aria-hidden="true"><div class="turn-face turn-front"></div><div class="turn-face turn-back"></div><span class="curl-highlight"></span></div>
+        </div>
+      </div>
+
+      <div class="reader-controls">
+        <button class="turn-button back-button" id="previous-page" type="button" aria-label="Torna alla tappa precedente" disabled><span aria-hidden="true">←</span><span>Indietro</span></button>
+        <p class="keyboard-hint">Usa ← → oppure i pulsanti</p>
+        <button class="turn-button next-button" id="next-page" type="button" aria-label="Vai alla tappa successiva"><span>Avanti</span><span aria-hidden="true">→</span></button>
+      </div>
+      <p class="reader-endnote">Modalità LIM: usa il pulsante in alto; premi Esc per uscire.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#libro"><span class="brand-mark">g<span>·</span>c</span><span class="brand-name">green·code</span></a>
+  </footer>
+</body>
+</html>

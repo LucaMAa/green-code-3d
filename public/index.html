@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14295e">
+  <meta name="description" content="Esplora una mappa 3D e scopri cinque scelte per progettare software con AI in modo più consapevole.">
+  <title>green·code — Una missione, cinque scelte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="game.css">
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="green code, inizio"><span class="brand-mark">g<span>·</span>c</span><span>green·code</span></a>
+    <p class="topbar-label">UNA MISSIONE · CINQUE SCELTE</p>
+    <nav class="header-links" aria-label="Materiali del talk">
+      <a class="ebook-link" href="book.html">Apri l’ebook <span aria-hidden="true">↗</span></a>
+      <a class="talk-link" href="guida-discorsiva-green-code.pdf">Testo del talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="world" aria-label="Mappa esplorabile green code">
+      <div class="world-sky" aria-hidden="true"></div>
+      <div class="world-canvas" id="world-canvas" tabindex="0" role="application" aria-label="Mondo 3D: usa WASD o le frecce per esplorare"></div>
+
+      <div class="game-hud">
+        <div class="mission-card">
+          <p class="eyebrow"><span class="live-dot"></span>MISSIONE IN CORSO</p>
+          <h1>La città<br>del <em>green code</em></h1>
+          <p>Un ticket, due sviluppatori, cinque decisioni. Esplora la mappa e scegli come ridurre il lavoro inutile.</p>
+          <div class="progress-label"><span>STAZIONI ESPLORATE</span><b id="progress-count">0 / 5</b></div>
+          <div class="progress-track" role="progressbar" aria-label="Stazioni completate" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+          <ol class="station-list" id="station-list" aria-label="Le cinque stazioni">
+            <li data-station="0"><span>01</span>Serve davvero l’AI?</li>
+            <li data-station="1"><span>02</span>Quale modello basta?</li>
+            <li data-station="2"><span>03</span>Quanto testo inviare?</li>
+            <li data-station="3"><span>04</span>Quante volte chiamare?</li>
+            <li data-station="4"><span>05</span>Come misurare l’impatto?</li>
+          </ol>
+        </div>
+
+        <div class="location-card" id="location-card" aria-live="polite">
+          <span class="location-icon" aria-hidden="true">⌖</span>
+          <div><b id="location-title">La piazza centrale</b><span id="location-description">Avvicinati a una stazione luminosa per iniziare.</span></div>
+        </div>
+      </div>
+
+      <div class="game-help" aria-label="Comandi di gioco">
+        <span class="help-key">W</span><span class="help-key">A</span><span class="help-key">S</span><span class="help-key">D</span>
+        <span class="help-or">oppure</span>
+        <span class="help-key">↑</span><span class="help-key">←</span><span class="help-key">↓</span><span class="help-key">→</span>
+        <span class="help-caption">PER MUOVERTI</span>
+        <span class="help-key space-key">SPAZIO</span><span class="help-caption">PER SALTARE</span>
+      </div>
+
+      <div class="touch-controls" aria-label="Comandi touch">
+        <button type="button" data-move="forward" aria-label="Avanti">↑</button>
+        <button type="button" data-move="left" aria-label="Sinistra">←</button>
+        <button type="button" data-move="back" aria-label="Indietro">↓</button>
+        <button type="button" data-move="right" aria-label="Destra">→</button>
+        <button type="button" id="jump-button" aria-label="Salta">↥</button>
+      </div>
+
+      <button class="start-overlay" id="start-button" type="button">
+        <span class="start-icon" aria-hidden="true">▶</span>
+        <span><b>Entra nella mappa</b><small>WASD o frecce per muoverti · Spazio per saltare</small></span>
+      </button>
+
+      <div class="interaction-prompt" id="interaction-prompt" hidden>
+        <span class="help-key">E</span><span>Esplora questa stazione</span>
+        <button type="button" id="interact-button">Apri <span aria-hidden="true">↗</span></button>
+      </div>
+
+      <p class="map-caption" aria-hidden="true">MUOVITI LIBERAMENTE · CERCA I CINQUE PUNTI DI LUCE</p>
+      <div class="game-error" id="game-error" role="alert" hidden></div>
+      <noscript><p class="noscript-note">Per esplorare la mappa serve JavaScript. Puoi consultare il <a href="book.html">percorso in formato ebook</a>.</p></noscript>
+    </section>
+
+    <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="activity-title">
+      <div class="dialog-topline"><span id="activity-kicker">STAZIONE 01 / 05</span><button type="button" id="close-activity" aria-label="Chiudi attività">×</button></div>
+      <p class="activity-tag" id="activity-tag">LA PRIMA DOMANDA</p>
+      <h2 id="activity-title"></h2>
+      <p class="activity-copy" id="activity-copy"></p>
+      <div class="scenario-card" id="scenario-card"></div>
+      <fieldset class="answer-options">
+        <legend id="question-label">Che cosa sceglieresti?</legend>
+        <div id="answer-options"></div>
+      </fieldset>
+      <div class="feedback" id="activity-feedback" role="status" hidden></div>
+      <div class="dialog-actions">
+        <button class="primary-button" id="check-answer" type="button">Conferma scelta <span aria-hidden="true">→</span></button>
+        <button class="secondary-button" id="continue-button" type="button" hidden>Continua a esplorare <span aria-hidden="true">↗</span></button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <span>green·code <span class="footer-dot">·</span> Una storia su software, AI e scelte consapevoli</span>
+    <a href="book.html">Leggi il percorso completo ↗</a>
+  </footer>
+</body>
+</html>
